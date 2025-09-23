@@ -1,10 +1,14 @@
-﻿namespace DemoEFCore
+﻿using DemoEFCore.DbContexts;
+
+namespace DemoEFCore
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // Database Connection [Unmanaged Resourse]
+            using CompanyDbContext companyDb = new CompanyDbContext();
+
         }
     }
 }
