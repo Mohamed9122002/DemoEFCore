@@ -20,5 +20,9 @@ namespace DemoEFCore.DbContexts
 
         }
         public DbSet<Employee>? Employees { get; set; }
+        // DbSet<T> : Represents Collection of Entity T in Database
+        public DbSet<Department>? Departments { get; set; }
+        //public DbSet<Project> Projects { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
