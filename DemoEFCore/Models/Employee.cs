@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DemoEFCore.Models
 {
     // Model : POCO Class [Plain Old CLR Object] - Domian Entity 
-
+     
     internal class Employee
     {
         // Public Numeric Property Named As [Id , EmployeeId]

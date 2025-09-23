@@ -1,4 +1,6 @@
 ﻿using DemoEFCore.DbContexts;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Security;
 
 namespace DemoEFCore
 {
@@ -8,6 +10,7 @@ namespace DemoEFCore
         {
             // Database Connection [Unmanaged Resourse]
             using CompanyDbContext companyDb = new CompanyDbContext();
+            //companyDb.Database.Migrate(); // Apply Pending Migration to Database
 
         }
     }

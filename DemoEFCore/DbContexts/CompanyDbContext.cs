@@ -16,9 +16,9 @@ namespace DemoEFCore.DbContexts
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true");
+           optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true; TrustServerCertificate = true ");
 
         }
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee>? Employees { get; set; }
     }
 }
