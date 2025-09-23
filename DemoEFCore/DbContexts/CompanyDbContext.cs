@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DemoEFCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,6 @@ namespace DemoEFCore.DbContexts
            optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true");
 
         }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
