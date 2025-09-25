@@ -74,5 +74,13 @@ namespace DemoEFCore.Models
         [AllowedValues(25, 28, 30, 35, 40)] // Custom Attribute 
         public int Age { get; set; }
         // value Type  int is mapped to int Not Allow Null
+        [Required]
+        public string Email { get; set; }
+        [Phone]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+        [DataType(DataType.Password)]
+        public string? Password { get; set; }
+
     }
 }

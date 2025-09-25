@@ -14,7 +14,7 @@ namespace DemoEFCore.Configurations
     {
         public void Configure(EntityTypeBuilder<Department> builder)
         {
- 
+
             {
                 builder.ToTable("Departments", "Sales");
                 builder.HasKey(Dpt => Dpt.DeptId);
@@ -37,7 +37,8 @@ namespace DemoEFCore.Configurations
                .HasDefaultValueSql("GetDate()"); // Default value = new DateTime Now
                 builder.Ignore(D => D.Serial);
 
-            
+
+            }
         }
     }
 }
