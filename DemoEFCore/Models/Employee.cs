@@ -26,29 +26,71 @@ namespace DemoEFCore.Models
     //} 
     #endregion
     #region Data Annotation 
+    //[Table("Employees")]
+    //internal class Employee
+    //{
+    //    // Public Numeric Property Named As [Id , EmployeeId]
+    //    [Key]
+    //    public int EmpId { get; set; } // Pk with Identity Constraint [1,1]
+    //    [Required]
+    //    [Column("EmployeeName",TypeName = "varchar")]
+    //    //[MaxLength(5,ErrorMessage = "Name of Employee Must Be Less Than 51 Char")]
+    //    //[MinLength(3,ErrorMessage ="Name of Employee Must Be More Than 3 Char")]
+    //    [StringLength(50,MinimumLength =3)]
+    //    // Backend Validation Will Not Be Mapped to Database
+
+    //    public string EmpName { get; set; }
+    //    //string? is Mapped to varchar(1) Not allow Null
+    //    [Column("EmployeeSalary",TypeName ="decimal(10,2)")]
+    //    public decimal Salary { get; set; }
+    //    // value Type  Not Allow Null 
+    //    // decimal is Mapped to decimal(18,2) Not Allow Null
+    //    [Range(21,60)] // Will Not Be Mapped to Database 
+    //    [AllowedValues(25,28,30,35,40)] // Custom Attribute 
+    //    public int Age { get; set; }
+    //    // value Type  int is mapped to int Not Allow Null
+    //}
+    #endregion
     [Table("Employees")]
     internal class Employee
     {
         // Public Numeric Property Named As [Id , EmployeeId]
-        [Key]
+
         public int EmpId { get; set; } // Pk with Identity Constraint [1,1]
         [Required]
-        [Column("EmployeeName",TypeName = "varchar")]
+        [Column("EmployeeName", TypeName = "varchar")]
         //[MaxLength(5,ErrorMessage = "Name of Employee Must Be Less Than 51 Char")]
         //[MinLength(3,ErrorMessage ="Name of Employee Must Be More Than 3 Char")]
-        [StringLength(50,MinimumLength =3)]
+        //[StringLength(50, MinimumLength = 3)]
         // Backend Validation Will Not Be Mapped to Database
 
         public string EmpName { get; set; }
         //string? is Mapped to varchar(1) Not allow Null
-        [Column("EmployeeSalary",TypeName ="decimal(10,2)")]
+        [Column("EmployeeSalary", TypeName = "decimal(10,2)")]
         public decimal Salary { get; set; }
         // value Type  Not Allow Null 
         // decimal is Mapped to decimal(18,2) Not Allow Null
-        [Range(21,60)] // Will Not Be Mapped to Database 
-        [AllowedValues(25,28,30,35,40)] // Custom Attribute 
+        [Range(21, 60)] // Will Not Be Mapped to Database 
+        [AllowedValues(25, 28, 30, 35, 40)] // Custom Attribute 
         public int Age { get; set; }
         // value Type  int is mapped to int Not Allow Null
+        [Required]
+        public string Email { get; set; }
+        [Phone]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+        [DataType(DataType.Password)]
+        public string? Password { get; set; }
+        // Navigation Property [one]
+        [InverseProperty(nameof(Department.Manager))]
+        public Department? ManageDepartment  { get; set; }
+        //oneToOne [Mandatory-Mandatory]
+        //public Address EmpAddress { get; set; }
+        //Navigation Property  one 
+        public int EmployeeDepartmentId { get; set; }
+        [InverseProperty(nameof(Department.Employees))]
+        public Department EmployeeDepartment { get; set; }
+
+
     }
-    #endregion
 }
