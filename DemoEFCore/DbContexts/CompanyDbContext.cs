@@ -81,6 +81,28 @@ namespace DemoEFCore.DbContexts
             //    .HasForeignKey(E => E.EmployeeDepartmentId) // Foreign Key in Employee Table
             //    .IsRequired() // Makes relationship required 
             //    .OnDelete(DeleteBehavior.NoAction);
+
+            //// Many To Many Configuration 
+            //modelBuilder.Entity<Student>()
+            //    .HasMany(S => S.Courses)
+            //    .WithMany(C => C.Students)
+            //    .UsingEntity(RT => RT.ToTable("Hamda");
+            //// Many to Many 
+            //modelBuilder.Entity<StudentCourse>()
+            //     .HasKey(sc=> new { sc.StudentId, sc.CourseId});
+
+            modelBuilder.Entity<Student>()
+                .HasMany(S => S.StudentCourses)
+                .WithOne(SC => SC.Student)
+                .HasForeignKey(SC => SC.StudentId)
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired();
+
+            modelBuilder.Entity<Course>()
+                .HasMany(C => C.StudentCourses)
+                .WithOne(SC => SC.Course)
+                .HasForeignKey(SC => SC.CourseId);
+
         }
         public DbSet<Employee>? Employees { get;  set; }
         //// DbSet<T> : Represents Collection of Entity T in Database
@@ -88,5 +110,7 @@ namespace DemoEFCore.DbContexts
         ////public DbSet<Project> Projects { get; set; }
         //public DbSet<Product> Products { get; set; }
         //public DbSet<Department> Departments { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }
