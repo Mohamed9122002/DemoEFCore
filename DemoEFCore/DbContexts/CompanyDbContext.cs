@@ -1,4 +1,4 @@
-﻿using Comman;
+﻿
 using DemoEFCore.Configurations;
 using DemoEFCore.Models;
 using Microsoft.EntityFrameworkCore;
@@ -64,7 +64,15 @@ namespace DemoEFCore.DbContexts
             //modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             // Automaticallly Apply All Fluent APIs Configurations From executing Assembly 
-
+            modelBuilder.Entity<Employee>()
+                .HasOne(E => E.ManageDepartment)
+                .WithOne(E => E.Manager)
+                .HasForeignKey<Department>(D => D.DeptManagerId)
+                .OnDelete(DeleteBehavior.NoAction)
+                .IsRequired(true);
+            //modelBuilder.Entity<Employee>()
+            //    .HasOne<Department>()
+            //    .WithOne();
 
         }
         public DbSet<Employee>? Employees { get;  set; }

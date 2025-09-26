@@ -1,4 +1,5 @@
-﻿using Comman;
+﻿
+using DemoEFCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

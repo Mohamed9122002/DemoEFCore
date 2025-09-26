@@ -15,10 +15,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Comman">
-      <HintPath>..\..\..\..\CommanS\Comman\bin\Debug\net8.0\Comman.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

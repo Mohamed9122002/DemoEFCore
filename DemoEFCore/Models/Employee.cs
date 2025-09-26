@@ -81,6 +81,8 @@ namespace DemoEFCore.Models
         public string PhoneNumber { get; set; }
         [DataType(DataType.Password)]
         public string? Password { get; set; }
+        // Navigation Property [one]
+        public Department? ManageDepartment  { get; set; }
 
     }
 }
