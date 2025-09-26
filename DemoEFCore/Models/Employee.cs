@@ -83,6 +83,9 @@ namespace DemoEFCore.Models
         public string? Password { get; set; }
         // Navigation Property [one]
         public Department? ManageDepartment  { get; set; }
+        //oneToOne [Mandatory-Mandatory]
+        public Address EmpAddress { get; set; }
+
 
     }
 }
