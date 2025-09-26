@@ -82,9 +82,14 @@ namespace DemoEFCore.Models
         [DataType(DataType.Password)]
         public string? Password { get; set; }
         // Navigation Property [one]
+        [InverseProperty(nameof(Department.Manager))]
         public Department? ManageDepartment  { get; set; }
         //oneToOne [Mandatory-Mandatory]
-        public Address EmpAddress { get; set; }
+        //public Address EmpAddress { get; set; }
+        //Navigation Property  one 
+        public int EmployeeDepartmentId { get; set; }
+        [InverseProperty(nameof(Department.Employees))]
+        public Department EmployeeDepartment { get; set; }
 
 
     }

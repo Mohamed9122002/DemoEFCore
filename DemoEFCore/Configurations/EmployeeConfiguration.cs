@@ -25,7 +25,7 @@ namespace DemoEFCore.Configurations
                 .HasMaxLength(50) // Varchar(50)
                 .IsRequired(false); // Allow Null 
 
-            builder.OwnsOne(E => E.EmpAddress, Address => Address.WithOwner());
+            //builder.OwnsOne(E => E.EmpAddress, Address => Address.WithOwner());
         }
     }
 }

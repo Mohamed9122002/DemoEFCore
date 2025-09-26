@@ -75,6 +75,9 @@ namespace DemoEFCore.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("EmployeeName");
 
+                    b.Property<int>("EmployeeDepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -91,7 +94,9 @@ namespace DemoEFCore.Migrations
 
                     b.HasKey("EmpId");
 
-                    b.ToTable("Employees");
+                    b.HasIndex("EmployeeDepartmentId");
+
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("DemoEFCore.Models.Department", b =>
@@ -107,30 +112,18 @@ namespace DemoEFCore.Migrations
 
             modelBuilder.Entity("DemoEFCore.Models.Employee", b =>
                 {
-                    b.OwnsOne("DemoEFCore.Models.Address", "EmpAddress", b1 =>
-                        {
-                            b1.Property<int>("EmployeeEmpId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("City")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Country")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Street")
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.HasKey("EmployeeEmpId");
-
-                            b1.ToTable("Employees");
-
-                            b1.WithOwner()
-                                .HasForeignKey("EmployeeEmpId");
-                        });
-
-                    b.Navigation("EmpAddress")
+                    b.HasOne("DemoEFCore.Models.Department", "EmployeeDepartment")
+                        .WithMany("Employees")
+                        .HasForeignKey("EmployeeDepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("EmployeeDepartment");
+                });
+
+            modelBuilder.Entity("DemoEFCore.Models.Department", b =>
+                {
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("DemoEFCore.Models.Employee", b =>

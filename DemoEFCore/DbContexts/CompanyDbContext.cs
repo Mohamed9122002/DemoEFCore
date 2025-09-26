@@ -74,6 +74,13 @@ namespace DemoEFCore.DbContexts
             //    .HasOne<Department>()
             //    .WithOne();
 
+            ////////////////////// 
+            //modelBuilder.Entity<Employee>()
+            //    .HasOne(E => E.EmployeeDepartment) // Each Employee Has One Department 
+            //    .WithMany(D => D.Employees) // Each Department Has Many Employees
+            //    .HasForeignKey(E => E.EmployeeDepartmentId) // Foreign Key in Employee Table
+            //    .IsRequired() // Makes relationship required 
+            //    .OnDelete(DeleteBehavior.NoAction);
         }
         public DbSet<Employee>? Employees { get;  set; }
         //// DbSet<T> : Represents Collection of Entity T in Database

@@ -38,6 +38,9 @@ namespace DemoEFCore.Models
         // Navigation Property (one)
 
         // Ef Core : Department Must has one Employee To Manage it [total Participt]
-        public Employee Manager { get; set; } = null!; 
+        [InverseProperty(nameof(Employee.ManageDepartment))]
+        public Employee Manager { get; set; } = null!;
+        [InverseProperty(nameof(Employee.EmployeeDepartment))]
+        public ICollection<Employee> Employees { get; set; }  = new HashSet<Employee>(); 
     }
 }
