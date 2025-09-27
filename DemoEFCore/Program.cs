@@ -1,4 +1,5 @@
-﻿using DemoEFCore.DbContexts;
+﻿using DemoEFCore.Data;
+using DemoEFCore.DbContexts;
 using DemoEFCore.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Net.Security;
@@ -25,7 +26,14 @@ namespace DemoEFCore
             //Console.WriteLine(companyDb.Entry<Employee>(employee01).State); // Detached
             //companyDb.Add(employee01);
             //companyDb.SaveChanges();    
-            
+            #region Dynmaic Data Seeding 
+         bool flag =  CompanyDbContextSeed.DataSeeding(companyDb);
+            if(flag)
+                Console.WriteLine("Data Seeded Successfully");
+            else
+                Console.WriteLine("Data Seeding Failed");
+
+            #endregion
 
         }
     }

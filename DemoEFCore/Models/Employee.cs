@@ -63,7 +63,6 @@ namespace DemoEFCore.Models
         //[MinLength(3,ErrorMessage ="Name of Employee Must Be More Than 3 Char")]
         //[StringLength(50, MinimumLength = 3)]
         // Backend Validation Will Not Be Mapped to Database
-
         public string EmpName { get; set; }
         //string? is Mapped to varchar(1) Not allow Null
         [Column("EmployeeSalary", TypeName = "decimal(10,2)")]
@@ -91,6 +90,7 @@ namespace DemoEFCore.Models
         [InverseProperty(nameof(Department.Employees))]
         public Department EmployeeDepartment { get; set; }
 
+        public Address? EmpAddress { get; set; }
 
     }
 }
