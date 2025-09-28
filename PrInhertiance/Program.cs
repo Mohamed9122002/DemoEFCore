@@ -24,7 +24,7 @@ namespace PrInhertiance
                 HourlyRate = 50,
                 CountOfHours = 100,
             };
-            //dbContext.Add(fullTime);
+            //dbContext.Employees.Add(fullTime);
             //dbContext.Add(partTime);
             //dbContext.SaveChanges();
             //var fTem = (from Ft in dbContext.FullTimeEmployees select Ft).FirstOrDefault();
@@ -50,6 +50,16 @@ namespace PrInhertiance
             //    else if (emp is PartTimeEmployee pte)
             //    {
             //        Console.WriteLine($"PartTime Employee: {pte.Name}, HourlyRate: {pte.HourlyRate}");
+            //    }
+            //}
+            #endregion
+            #region  Inheritance Mapping [TPT]
+            //var employees = (from e in dbContext.Employees select e ).ToList();
+            //if(employees is not null)
+            //{
+            //    foreach (var emp in employees.OfType<Employee>())
+            //    {
+            //        Console.WriteLine($"{emp.Name}: {emp.Age}");
             //    }
             //}
             #endregion

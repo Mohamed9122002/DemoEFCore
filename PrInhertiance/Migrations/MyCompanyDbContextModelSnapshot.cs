@@ -36,11 +36,6 @@ namespace PrInhertiance.Migrations
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("EmployeeType")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -49,9 +44,7 @@ namespace PrInhertiance.Migrations
 
                     b.ToTable("Employees");
 
-                    b.HasDiscriminator<string>("EmployeeType").HasValue("Employee");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("PrInhertiance.Models.FullTimeEmployee", b =>
@@ -64,7 +57,7 @@ namespace PrInhertiance.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasDiscriminator().HasValue("FTE");
+                    b.ToTable("FullTimeEmployees", (string)null);
                 });
 
             modelBuilder.Entity("PrInhertiance.Models.PartTimeEmployee", b =>
@@ -77,7 +70,25 @@ namespace PrInhertiance.Migrations
                     b.Property<decimal>("HourlyRate")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasDiscriminator().HasValue("PTE");
+                    b.ToTable("PartTimeEmployees", (string)null);
+                });
+
+            modelBuilder.Entity("PrInhertiance.Models.FullTimeEmployee", b =>
+                {
+                    b.HasOne("PrInhertiance.Models.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("PrInhertiance.Models.FullTimeEmployee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PrInhertiance.Models.PartTimeEmployee", b =>
+                {
+                    b.HasOne("PrInhertiance.Models.Employee", null)
+                        .WithOne()
+                        .HasForeignKey("PrInhertiance.Models.PartTimeEmployee", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
