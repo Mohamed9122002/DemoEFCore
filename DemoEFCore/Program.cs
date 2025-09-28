@@ -191,6 +191,66 @@ namespace DemoEFCore
             //    Console.WriteLine("===================================");
             //}
             #endregion
+            #region left outer Join 
+            // LeftJoin() not Work 
+
+            #region Department left Join Employees 
+            //var result = companyDb.Departments
+            //    .GroupJoin(companyDb.Employees,
+            //    D => D.DeptId,
+            //    E => E.EmployeeDepartmentId,
+            //    (D, EmployeesGroup) => new
+            //    {
+            //        DepartmentId = D.DeptId,
+            //        DepartmentName = D.DeptName,
+            //        Employees = EmployeesGroup
+
+            //    }).Select(R=>R.DepartmentName);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"Department Id : {item.DepartmentId}");
+            //    Console.WriteLine($"Department Name : {item.DepartmentName}");
+            //    foreach (var emp in item.Employees)
+            //    {
+            //        Console.WriteLine($"Employee Id : {emp.EmpId}");
+            //        Console.WriteLine($"Employee Name : {emp.EmpName}");
+            //    }
+            //    Console.WriteLine("===================================");
+            //}
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            // inner join 
+            //var result = companyDb.Departments.GroupJoin(companyDb.Employees, D => D.DeptId,
+            //    E => E.EmployeeDepartmentId,
+            //    (D, EmployeesGroup) => new
+            //    {
+            //        DepartmentId = D.DeptId,
+            //        DepartmentName = D.DeptName,
+            //        Employees = EmployeesGroup
+            //    }).SelectMany(R => R.Employees);
+            //foreach (var item in result)
+            //    Console.WriteLine(item.EmpName);
+            // Left Outer Join 
+       //     var result = companyDb.Departments.GroupJoin(companyDb.Employees, D => D.DeptId,
+       //E => E.EmployeeDepartmentId,
+       //(D, EmployeesGroup) => new
+       //{
+       //    Department= D,
+       //    Employees = EmployeesGroup
+       //}).SelectMany(R => R.Employees.DefaultIfEmpty(), (R, Employee) => new
+       //{
+       //    DepartmentId = R.Department.DeptId,
+       //    DepartmentName = R.Department.DeptName,
+       //    EmployeeName = Employee != null ? Employee.EmpName : "No Employee",
+       //});
+       //     foreach (var item in result)
+       //         Console.WriteLine($"Department Name : {item.DepartmentName} , Employee Name : {item.EmployeeName}");
+           
+            #endregion
+            #endregion
 
         }
     }
