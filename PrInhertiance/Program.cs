@@ -63,6 +63,15 @@ namespace PrInhertiance
             //    }
             //}
             #endregion
+            #region Local 
+            //var result = dbContext.Employees.Local.Any(E => E.Age != null);
+            // No Database Interaction [No Request]
+            //Console.WriteLine(result);
+            //var result = dbContext.Employees.Any(E => E.Age != null);
+            // Database Interaction [Request] 
+            #endregion
+
+
         }
     }
 }
