@@ -37,6 +37,7 @@ namespace DemoEFCore.Configurations
                //.HasDefaultValue(DateOnly.FromDateTime(DateTime.Now));// Default value = new DateOnly Now
                .HasDefaultValueSql("GetDate()"); // Default value = new DateTime Now
                 builder.Ignore(D => D.Serial);
+                builder.Property(D=>D.DeptManagerId).IsRequired(false);
 
 
             }

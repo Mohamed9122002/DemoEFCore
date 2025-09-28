@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoEFCore.Models
 {
-    internal class Department
+    public class Department
     {
         public int DeptId { get; set; }
 
@@ -27,8 +27,7 @@ namespace DemoEFCore.Models
         // Data Annotation
         //Use[ForeignKey] Attribute if needed(when FK name does not match the related entity's PK)
 
-        //[ForeignKey(nameof(Manager))]
-        public int DeptManagerId { get; set; } // FK
+
         // Use Fluent API to configure Relationship 
         /// <summary>
         ///  Use Fluent APIs When FK property name does not match PK , Need custom FK constraints
@@ -38,9 +37,11 @@ namespace DemoEFCore.Models
         // Navigation Property (one)
 
         // Ef Core : Department Must has one Employee To Manage it [total Participt]
+        [ForeignKey(nameof(Manager))]
+        public int? DeptManagerId { get; set; } // FK
         [InverseProperty(nameof(Employee.ManageDepartment))]
-        public Employee Manager { get; set; } = null!;
+        public virtual Employee Manager { get; set; } = null!;
         [InverseProperty(nameof(Employee.EmployeeDepartment))]
-        public ICollection<Employee> Employees { get; set; }  = new HashSet<Employee>(); 
+        public virtual ICollection<Employee> Employees { get; set; }  = new HashSet<Employee>(); 
     }
 }

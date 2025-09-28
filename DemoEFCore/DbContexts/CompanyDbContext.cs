@@ -19,7 +19,9 @@ namespace DemoEFCore.DbContexts
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true; TrustServerCertificate = true ");
+           optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true; TrustServerCertificate = true ").UseLazyLoadingProxies();
+
+
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -39,7 +41,7 @@ namespace DemoEFCore.DbContexts
 
             //modelBuilder.Entity<Department>(D =>
             //{
-            //    D.ToTable("Departments" ,"Sales");
+            //    D.ToTable("Departments", "Sales");
             //    D.HasKey(Dpt => Dpt.DeptId);
             //    D.Property(Dpt => Dpt.DeptId)
             //    .UseIdentityColumn(10, 10);
@@ -106,7 +108,7 @@ namespace DemoEFCore.DbContexts
         }
         public DbSet<Employee>? Employees { get;  set; }
         //// DbSet<T> : Represents Collection of Entity T in Database
-        //public DbSet<Department>? Departments { get; set; }
+        public DbSet<Department> Departments { get; set; }
         ////public DbSet<Project> Projects { get; set; }
         //public DbSet<Product> Products { get; set; }
         //public DbSet<Department> Departments { get; set; }

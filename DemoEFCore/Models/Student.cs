@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoEFCore.Models
 {
-    internal class Student
+    public class Student
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;
@@ -14,7 +14,7 @@ namespace DemoEFCore.Models
 
         //public ICollection<Course> Courses { get; set; } = new HashSet<Course>();
 
-        public ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
 
     }
 }
