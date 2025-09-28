@@ -126,6 +126,37 @@ namespace DemoEFCore
             //    Console.WriteLine($"Employee Age : {emp01.EmployeeDepartment.DeptName}"); // Realted Data 
             //}
             #endregion
+            #region inner Join  Join()
+            #region Department that has Employees 
+            // var result = companyDb.Set<Department>().Join(companyDb.Employees, D => D.DeptId, E => E.EmployeeDepartmentId, (D, E) =>
+            //new  {
+            //    EmployeeId = E.EmpId,
+            //    EmployeeName = E.EmpName,
+            //    DepartmentId = D.DeptId,
+            //    DepartmentName = D.DeptName
+
+            //});
+            // foreach (var item in result)
+            // {
+            //     Console.WriteLine($"Employee Id : {item.EmployeeId}");
+            //     Console.WriteLine($"Employee Name : {item.EmployeeName}");
+            //     Console.WriteLine($"Department Id : {item.DepartmentId}");
+            //     Console.WriteLine($"Department Name : {item.DepartmentName}");
+            //     Console.WriteLine("===================================");
+            // }
+            // Query Syntax 
+            //var result = from D in companyDb.Set<Department>()
+            //             join E in companyDb.Employees
+            //             on D.DeptId equals E.EmployeeDepartmentId
+            //             select new
+            //             {
+            //                 EmployeeId = E.EmpId,
+            //                 EmployeeName = E.EmpName,
+            //                 DepartmentId = D.DeptId,
+            //                 DepartmentName = D.DeptName
+            //             };
+            #endregion
+            #endregion
 
         }
     }
