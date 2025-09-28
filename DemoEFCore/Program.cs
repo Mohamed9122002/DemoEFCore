@@ -234,22 +234,39 @@ namespace DemoEFCore
             //foreach (var item in result)
             //    Console.WriteLine(item.EmpName);
             // Left Outer Join 
-       //     var result = companyDb.Departments.GroupJoin(companyDb.Employees, D => D.DeptId,
-       //E => E.EmployeeDepartmentId,
-       //(D, EmployeesGroup) => new
-       //{
-       //    Department= D,
-       //    Employees = EmployeesGroup
-       //}).SelectMany(R => R.Employees.DefaultIfEmpty(), (R, Employee) => new
-       //{
-       //    DepartmentId = R.Department.DeptId,
-       //    DepartmentName = R.Department.DeptName,
-       //    EmployeeName = Employee != null ? Employee.EmpName : "No Employee",
-       //});
-       //     foreach (var item in result)
-       //         Console.WriteLine($"Department Name : {item.DepartmentName} , Employee Name : {item.EmployeeName}");
-           
+            //     var result = companyDb.Departments.GroupJoin(companyDb.Employees, D => D.DeptId,
+            //E => E.EmployeeDepartmentId,
+            //(D, EmployeesGroup) => new
+            //{
+            //    Department= D,
+            //    Employees = EmployeesGroup
+            //}).SelectMany(R => R.Employees.DefaultIfEmpty(), (R, Employee) => new
+            //{
+            //    DepartmentId = R.Department.DeptId,
+            //    DepartmentName = R.Department.DeptName,
+            //    EmployeeName = Employee != null ? Employee.EmpName : "No Employee",
+            //});
+            //     foreach (var item in result)
+            //         Console.WriteLine($"Department Name : {item.DepartmentName} , Employee Name : {item.EmployeeName}");
+
             #endregion
+            #endregion
+
+            #region Cross Join 
+            //var result = from E in companyDb.Employees
+            //             from D in companyDb.Departments
+            //             select new
+            //             {
+            //                 EmployeeName = E.EmpName,
+            //                 DepartmentName = D.DeptName
+            //             };
+            //var result = companyDb.Employees.SelectMany(E => companyDb.Departments, (E, D) => new
+            //{
+            //    EmployeeName = E.EmpName,
+            //    DepartmentName = D.DeptName
+            //});
+            //foreach (var item in result)
+            //    Console.WriteLine(item);
             #endregion
 
         }
