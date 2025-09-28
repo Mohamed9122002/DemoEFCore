@@ -14,7 +14,18 @@ namespace PrInhertiance.Contexts
         {
             optionsBuilder.UseSqlServer("Server= .;Database=MyCompany;Trusted_Connection = true; TrustServerCertificate = true ");
         }
-        public DbSet<FullTimeEmployee> FullTimeEmployees { get; set; }
-        public DbSet<PartTimeEmployee> PartTimeEmployees { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            //modelBuilder.Entity<FullTimeEmployee>().HasBaseType<Employee>();
+            //modelBuilder.Entity<PartTimeEmployee>().HasBaseType<Employee>();
+            modelBuilder.Entity<Employee>()
+                .HasDiscriminator<string>("EmployeeType")
+                .HasValue<FullTimeEmployee>("FTE")
+                .HasValue<PartTimeEmployee>("PTE");
+        }
+        public DbSet<Employee> Employees { get; set; }
+        //public DbSet<FullTimeEmployee> FullTimeEmployees { get; set; }
+        //public DbSet<PartTimeEmployee> PartTimeEmployees { get; set; }
     }
 }

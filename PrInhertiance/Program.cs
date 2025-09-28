@@ -37,6 +37,22 @@ namespace PrInhertiance
             //{
             //    Console.WriteLine($"PartTime Employee: {pTem.Name}, HourlyRate: {pTem.HourlyRate}");
             //}
+            #region Table-per-Hierarchy (TPH)
+            //Default strategy in EF Core , All classes in an inheritance hierarchy are mapped to a
+            //single table and a discriminator column is used to distinguish between different types.
+            //var employees = from e in dbContext.Employees select e;
+            //foreach (var emp in employees)
+            //{
+            //    if (emp is FullTimeEmployee fte)
+            //    {
+            //        Console.WriteLine($"FullTime Employee: {fte.Name}, Salary: {fte.Salary}");
+            //    }
+            //    else if (emp is PartTimeEmployee pte)
+            //    {
+            //        Console.WriteLine($"PartTime Employee: {pte.Name}, HourlyRate: {pte.HourlyRate}");
+            //    }
+            //}
+            #endregion
         }
     }
 }
