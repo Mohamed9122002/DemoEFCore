@@ -157,6 +157,40 @@ namespace DemoEFCore
             //             };
             #endregion
             #endregion
+            #region Group Join() ==> Left outer  Join
+            //Group Join : EF Core 7 Feature
+            //Groups the elements from the second collection based on a key in the first collection
+            //var result = companyDb.Departments.GroupJoin(companyDb.Employees,D=> D.DeptId,
+            //    E => E.EmployeeDepartmentId,
+            //    (D, EmployeesGroup) => new
+            //    {
+            //        DepartmentId = D.DeptId,
+            //        DepartmentName = D.DeptName,
+            //        Employees = EmployeesGroup
+            //    });
+            // query Syntax 
+            //var result = from D in companyDb.Departments
+            //             join E in companyDb.Employees
+            //             on D.DeptId equals E.EmployeeDepartmentId into EmployeesGroup
+            //             select new
+            //             {
+            //                 DepartmentId = D.DeptId,
+            //                 DepartmentName = D.DeptName,
+            //                 Employees = EmployeesGroup
+            //             };
+
+            //foreach (var item in result)
+            //    {
+            //    Console.WriteLine($"Department Id : {item.DepartmentId}");
+            //    Console.WriteLine($"Department Name : {item.DepartmentName}");
+            //    foreach(var emp in item.Employees)
+            //    {
+            //        Console.WriteLine($"Employee Id : {emp.EmpId}");
+            //        Console.WriteLine($"Employee Name : {emp.EmpName}");
+            //    }
+            //    Console.WriteLine("===================================");
+            //}
+            #endregion
 
         }
     }
