@@ -77,6 +77,37 @@ namespace DemoEFCore
             //}
             // eager Loading => One request => All Data
             #endregion
+            #region  Loading Related Data - Explicit Loading
+            // Manual Loading of Related Data
+
+            #region Ex01
+            //var emp01WithDepartment = companyDb.Employees.FirstOrDefault(e => e.EmpId == 25);
+            //if (emp01WithDepartment is not null)
+            //{
+            //    Console.WriteLine(emp01WithDepartment.EmpName);
+            //    Console.WriteLine(emp01WithDepartment.EmployeeDepartmentId);
+            //    // Load Related Data  explicitly
+            //    // Navigational Property is One  => Reference 
+            //    // Navigational Property is Many => Collection 
+            //    companyDb.Entry(emp01WithDepartment).Reference(E => E.EmployeeDepartment).Load();
+            //    Console.WriteLine(emp01WithDepartment.EmployeeDepartment?.DeptName);
+
+            //} 
+            #endregion
+            #region Ex01
+            //var Department01 = companyDb.Departments.FirstOrDefault(d=>d.DeptId == 10);
+            //if(Department01 != null)
+            //{
+            //    Console.WriteLine(Department01.DeptName);//
+            //    companyDb.Entry(Department01).Collection(D => D.Employees).Query().Where(E=>E.Age>25).Load();
+            //    foreach(var emp in Department01.Employees) 
+            //    {
+            //        Console.WriteLine($"Employee Name : {emp.EmpName}");
+            //    }
+            //} 
+            #endregion
+
+            #endregion
 
         }
     }
