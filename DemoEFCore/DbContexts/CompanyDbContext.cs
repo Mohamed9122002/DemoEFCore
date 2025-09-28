@@ -19,7 +19,9 @@ namespace DemoEFCore.DbContexts
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true; TrustServerCertificate = true ");
+           optionsBuilder.UseSqlServer("Server= .;Database=CompanyDb;Trusted_Connection = true; TrustServerCertificate = true ").UseLazyLoadingProxies();
+
+
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

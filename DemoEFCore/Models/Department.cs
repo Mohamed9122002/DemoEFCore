@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DemoEFCore.Models
 {
-    internal class Department
+    public class Department
     {
         public int DeptId { get; set; }
 
@@ -40,8 +40,8 @@ namespace DemoEFCore.Models
         [ForeignKey(nameof(Manager))]
         public int? DeptManagerId { get; set; } // FK
         [InverseProperty(nameof(Employee.ManageDepartment))]
-        public Employee Manager { get; set; } = null!;
+        public virtual Employee Manager { get; set; } = null!;
         [InverseProperty(nameof(Employee.EmployeeDepartment))]
-        public ICollection<Employee> Employees { get; set; }  = new HashSet<Employee>(); 
+        public virtual ICollection<Employee> Employees { get; set; }  = new HashSet<Employee>(); 
     }
 }

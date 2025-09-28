@@ -2,7 +2,11 @@
 using DemoEFCore.DbContexts;
 using DemoEFCore.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Net.Security;
+using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics.X86;
 
 namespace DemoEFCore
 {
@@ -106,7 +110,21 @@ namespace DemoEFCore
             //    }
             //} 
             #endregion
-
+            #endregion
+            // Lazy Loading
+            #region Lazy Loading 
+            //Lazy Loading means that related data is not loaded from the database until it is accessed for the first time so EF Core delays the loading of navigation properties until you explicitly use them but EF Core Doesn’t Enable Lazy Loading By Default You Need To Enable It Manually
+            //Configure Lazy Loading Feature
+            //Install the package ( Microsoft.EntityFrameworkCore.Proxies)
+            //Configure it in DbContext
+            //Add virtual to navigation properties
+            //var emp01 = companyDb.Employees.FirstOrDefault(e => e.EmpId == 25);
+            //if (emp01 != null)
+            //{
+            //    Console.WriteLine($"Employee Name : {emp01.EmpName}");
+            //    Console.WriteLine($"Employee Salary : {emp01.Salary}");
+            //    Console.WriteLine($"Employee Age : {emp01.EmployeeDepartment.DeptName}"); // Realted Data 
+            //}
             #endregion
 
         }

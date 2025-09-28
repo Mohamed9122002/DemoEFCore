@@ -52,7 +52,7 @@ namespace DemoEFCore.Models
     //}
     #endregion
     [Table("Employees")]
-    internal class Employee
+    public class Employee
     {
         // Public Numeric Property Named As [Id , EmployeeId]
 
@@ -82,13 +82,13 @@ namespace DemoEFCore.Models
         public string? Password { get; set; }
         // Navigation Property [one]
         [InverseProperty(nameof(Department.Manager))]
-        public Department? ManageDepartment  { get; set; }
+        public virtual Department? ManageDepartment  { get; set; }
         //oneToOne [Mandatory-Mandatory]
         //public Address EmpAddress { get; set; }
         //Navigation Property  one 
         public int EmployeeDepartmentId { get; set; }
         [InverseProperty(nameof(Department.Employees))]
-        public Department EmployeeDepartment { get; set; }
+        public virtual Department EmployeeDepartment { get; set; } = null!;
 
         public Address? EmpAddress { get; set; }
 

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DemoEFCore.Models
 {
-    internal class Course
+    public class Course
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;
         // Navigation Property (Many) 
         //public ICollection<Student> Students { get; set; } = new HashSet<Student>();
-        public ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
+        public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
 
     }
 }
