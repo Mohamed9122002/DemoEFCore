@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoEFCore", "DemoEFCore\De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrInhertiance", "PrInhertiance\PrInhertiance.csproj", "{B54542DF-4EBC-41D7-A16B-255E978EC512}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseFirst", "DataBaseFirst\DataBaseFirst.csproj", "{967FF303-8220-4B59-BB16-AAD5F01183DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B54542DF-4EBC-41D7-A16B-255E978EC512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B54542DF-4EBC-41D7-A16B-255E978EC512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B54542DF-4EBC-41D7-A16B-255E978EC512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{967FF303-8220-4B59-BB16-AAD5F01183DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967FF303-8220-4B59-BB16-AAD5F01183DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967FF303-8220-4B59-BB16-AAD5F01183DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967FF303-8220-4B59-BB16-AAD5F01183DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
