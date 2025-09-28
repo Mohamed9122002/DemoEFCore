@@ -1,4 +1,6 @@
-﻿using DataBaseFirst.Contexts;
+﻿
+
+using DataBaseFirst.Contexts;
 
 namespace DataBaseFirst
 {
@@ -11,12 +13,13 @@ namespace DataBaseFirst
 
             //Scaffold-DbContext -Connection "Server=.; Database = Northwind; Trusted_Connection = true; TrustServerCertificate = true" -Provider
             ///Scaffold-DbContext -Connection "Server=.; Database = Northwind; Trusted_Connection = true; TrustServerCertificate = true"  Microsoft.EntityFrameworkCore.SqlServer -Context "MyNorthWindDbContext" -ContextDir "Contexts" -OutputDir "Models"  -Tables "Customers",Employees",Orders","Products", "Sales Totals by Amount"
-            //using MyNorthWindDbContext myNorthWindDbContext = new MyNorthWindDbContext();
-            //var customers = myNorthWindDbContext.Customers.ToList();
-            //foreach (var customer in customers)
-            //{
-            //    Console.WriteLine($"{customer.CustomerId} {customer.CompanyName} {customer.ContactName}");
-            //}
+            using MyNorthwindDbContext
+                myNorthWindDbContext = new MyNorthwindDbContext();
+            var customers = myNorthWindDbContext.Customers.ToList();
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"{customer.CustomerId} {customer.CompanyName} {customer.ContactName}");
+            }
 
         }
     }
